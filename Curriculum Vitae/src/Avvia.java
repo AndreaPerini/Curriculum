@@ -13,8 +13,7 @@ public class Avvia {
 		int d1, d2, d3, d4, d5, d6, comp, stipendio, anniStudio, durata, voto;
 		String descrizione, nomeazienda, tipocorso, istituto, tipo;
 		boolean corsoaggiornamento, diplomaConseguito;
-		
-		
+
 		do {
 			System.out.println("Seleziona l'azione da eseguire: ");
 			System.out.println("1 = Aggiungi voce");
@@ -46,31 +45,23 @@ public class Avvia {
 					datafine = LocalDate.of(d4, d5, d6);
 					comp = datainizio.compareTo(datafine);
 					if (comp > 0) {
-						System.out.println("Reinserisci le date");
+						System.out.println("\nReinserisci le date\n");
 					} else {
 						date = true;
 					}
 				} while (!date);
 				System.out.println("Inserisci una descrizione");
-				descrizione = sc.nextLine();
+				descrizione = sc.next();
 				do {
-					System.out.println("Scegli cosa vuoi fare: ");
-					System.out.println("1 = Non inserire altro");
-					System.out.println("2 = Inserisci Esperienza Lavorativa");
-					System.out.println("3 = Inserisci Studio Effettuato");
+					System.out.println("Scegli il tipo della voce: ");
+					System.out.println("1 = Inserisci Esperienza Lavorativa");
+					System.out.println("2 = Inserisci Studio Effettuato");
 					int scelta = sc.nextInt();
 					switch (scelta) {
 					case 1:
-						cur.setDataInizio(datainizio);
-						cur.setDataFine(datafine);
-						cur.setDescrizione(descrizione);
-						Curriculum.aggiungiVoce(cur);
-						opzioni = true;
-						break;
-					case 2:
 						EsperienzaLavorativa cures = new EsperienzaLavorativa();
 						System.out.println("Inserisci il nome dell'azienda");
-						nomeazienda = sc.nextLine();
+						nomeazienda = sc.next();
 						System.out.println("Inserisci lo stipendio");
 						stipendio = sc.nextInt();
 						System.out.println("Inserisci corso d'aggiornamento");
@@ -85,21 +76,26 @@ public class Avvia {
 							Curriculum.aggiungiVoce(cures);
 						} else {
 							System.out.println("Inserisci il tipo del corso");
-							tipocorso = sc.nextLine();
+							tipocorso = sc.next();
 							cures.setTipoCorso(tipocorso);
 							Curriculum.aggiungiVoce(cures);
 						}
 						opzioni = true;
 						break;
-					case 3:
+					case 2:
 						StudioEffettuato curst = new StudioEffettuato();
 						Diploma curdi = new Diploma();
 						System.out.println("Inserisci l'istituto");
-						istituto = sc.nextLine();
+						istituto = sc.next();
 						System.out.println("Inserisci gli anni di studio");
 						anniStudio = sc.nextInt();
 						System.out.println("Inserisci se il diploma è stato conseguito");
-						diplomaConseguito = sc.nextBoolean();
+						if(sc.next().equalsIgnoreCase("si")) {
+							diplomaConseguito = true;
+						}
+						else {
+							diplomaConseguito = false;
+						}
 						if (diplomaConseguito == false) {
 							curst.setIstituto(istituto);
 							curst.setAnniStudio(anniStudio);
@@ -124,6 +120,7 @@ public class Avvia {
 						break;
 					default:
 						System.out.println("Inserimento errato");
+						break;
 					}
 				} while (opzioni = false);
 				break;
@@ -133,10 +130,13 @@ public class Avvia {
 					int ind = sc.nextInt();
 					Curriculum.rimuoviVoce(ind);
 				} else
-					System.out.println("Inserisci almeno una voce");
+					System.out.println("\nInserisci almeno una voce \n");
 				break;
 			case 3:
-				Curriculum.stampaCurriculumByDate();
+				if (generata == true) {
+					Curriculum.stampaCurriculumByDate();
+				} else
+					System.out.println("\nInserisci almeno una voce \n");
 				break;
 			default:
 				flag = true;
