@@ -10,7 +10,7 @@ public class Avvia {
 		boolean generata = false;
 		boolean opzioni = false;
 		LocalDate datainizio, datafine;
-		int d1, d2, d3, d4, d5, d6, comp, stipendio, anniStudio, durata, voto;
+		int d1, d2, d3, d4, d5, d6, comp, stipendio, anniStudio, durata, voto, scelta;
 		String descrizione, nomeazienda, tipocorso, istituto, tipo;
 		boolean corsoaggiornamento, diplomaConseguito;
 
@@ -56,7 +56,7 @@ public class Avvia {
 					System.out.println("Scegli il tipo della voce: ");
 					System.out.println("1 = Inserisci Esperienza Lavorativa");
 					System.out.println("2 = Inserisci Studio Effettuato");
-					int scelta = sc.nextInt();
+					scelta = sc.nextInt();
 					switch (scelta) {
 					case 1:
 						EsperienzaLavorativa cures = new EsperienzaLavorativa();
