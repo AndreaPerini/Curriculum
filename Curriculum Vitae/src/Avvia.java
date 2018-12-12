@@ -64,8 +64,13 @@ public class Avvia {
 						nomeazienda = sc.next();
 						System.out.println("Inserisci lo stipendio");
 						stipendio = sc.nextInt();
-						System.out.println("Inserisci corso d'aggiornamento");
-						corsoaggiornamento = sc.nextBoolean();
+						System.out.println("hai effettuato un corso d'aggiornamento?");
+						if(sc.next().equalsIgnoreCase("si")) {
+							corsoaggiornamento = true;
+						}
+						else {
+							corsoaggiornamento = false;
+						}
 						cures.setDataInizio(datainizio);
 						cures.setDataFine(datafine);
 						cures.setDescrizione(descrizione);
