@@ -73,9 +73,9 @@ public class Curriculum {
 	}
 
 	public static void stampaCurriculumByDate() {
-		for (int i = 0; i < elenco.length; i++) {
+		for (int i = 0; i < index; i++) {
 			boolean flag = false;
-			for (int j = 0; j < elenco.length - 1; j++) {
+			for (int j = 0; j < index - 1; j++) {
 				a = elenco[j].dataFine.compareTo(elenco[j + 1].dataFine);
 				if (a > 0) {
 					b = elenco[j];
