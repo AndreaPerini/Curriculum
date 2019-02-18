@@ -20,11 +20,10 @@ public class Avvia {
 			System.out.println("2 = Elimina voce");
 			System.out.println("3 = Stampa elenco dal più recente");
 			System.out.println("Qualsiasi altro numero per uscire dal programma");
-			int a = sc.nextInt();
-			switch (a) {
+			switch (sc.nextInt()) {
 			case 1:
 				generata = true;
-				Curriculum cur = new Curriculum();
+				//Curriculum cur = new Curriculum();
 				boolean date = false;
 				do {
 					System.out.println("Inserici una data di inizio");
@@ -127,7 +126,7 @@ public class Avvia {
 						System.out.println("Inserimento errato");
 						break;
 					}
-				} while (opzioni = false);
+				} while (!opzioni);
 				break;
 			case 2:
 				if (generata == true) {
